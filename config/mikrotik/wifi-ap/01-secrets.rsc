@@ -1,0 +1,1 @@
+../../../secrets/mikrotik/wifi-ap.rsc

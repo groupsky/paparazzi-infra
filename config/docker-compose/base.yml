@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+
+    base:
+      restart: always
+      logging:
+        driver: local
+        options:
+          max-size: "1m"
+      security_opt:
+        - no-new-privileges:true
+      environment:
+        - TZ=${TZ}
+      volumes:
+        - /etc/localtime:/etc/localtime:ro

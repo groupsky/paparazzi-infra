@@ -12,7 +12,7 @@
 /interface/wireguard add comment=wgs2s listen-port=$secretWgS2SLocalPort name=wg-remote private-key=$secretWgS2SLocalPrivateKey
 # add the remote peer
 /interface/wireguard/peers add \
-  allowed-address=$secretWgS2SRemoteNetwork$secretWgS2SRemoteNetworkBits \
+  allowed-address="$secretWgS2SRemoteNetwork/$secretWgS2SRemoteNetworkBits" \
   comment=wgs2s \
   endpoint-address=$secretWgS2SRemoteAddress \
   endpoint-port=$secretWgS2SRemotePort \
@@ -28,5 +28,5 @@
 # accept the traffic
 add action=accept chain=input comment=wgs2s dst-port=$secretWgS2SLocalPort protocol=udp src-address=$secretWgS2SRemoteAddress
 # and forward it between the networks
-add action=accept chain=forward comment=wgs2s dst-address=$secretLanNetwork$secretLanNetworkBits src-address=$secretWgS2SRemoteNetwork$secretWgS2SRemoteNetworkBits
-add action=accept chain=forward comment=wgs2s dst-address=$secretWgS2SRemoteNetwork$secretWgS2SRemoteNetworkBits src-address=$secretLanNetwork$secretLanNetworkBits
+add action=accept chain=forward comment=wgs2s dst-address="$secretLanNetwork/$secretLanNetworkBits" src-address="$secretWgS2SRemoteNetwork/$secretWgS2SRemoteNetworkBits"
+add action=accept chain=forward comment=wgs2s dst-address="$secretWgS2SRemoteNetwork/$secretWgS2SRemoteNetworkBits" src-address="$secretLanNetwork/$secretLanNetworkBits"

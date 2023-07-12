@@ -3,7 +3,7 @@
 #######################################
 # LAN Configuration
 :global secretLanNetwork 192.168.88.0
-:global secretLanNetworkBits /24
+:global secretLanNetworkBits 24
 :global secretLanDhcpRange 192.168.88.10-192.168.88.254
 
 # Wifi Configuration
@@ -22,5 +22,5 @@
 :global secretWgS2SRemoteAddress 192.168.80.1
 :global secretWgS2SRemotePort 51820
 :global secretWgS2SRemotePublicKey "v/oIzPyFm1FPHrqhytZgsKjU7mUToQHLrW+Tb5e601M="
-:global secretWgS2SRemoteNetwork 192.168.77.0/24
-:global secretWgS2SRemoteNetworkBits /24
+:global secretWgS2SRemoteNetwork 192.168.77.0
+:global secretWgS2SRemoteNetworkBits 24

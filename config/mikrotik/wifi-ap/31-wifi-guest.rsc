@@ -5,13 +5,13 @@ add authentication-types=wpa-psk,wpa2-psk \
   mode=dynamic-keys \
   name=profile \
   supplicant-identity=MikroTik \
-  wpa-pre-shared-key=$secretWifiGuestPassword \
-  wpa2-pre-shared-key=$secretWifiGuestPassword
+  wpa-pre-shared-key=$wifiGuestPassword \
+  wpa2-pre-shared-key=$wifiGuestPassword
 
 /interface wireless
 remove [ find comment=wifiguest ]
-add comment=wifiguest disabled=no mac-address=$secretWifiGuest2GMac master-interface=wlan1 name=wlan4 security-profile=profile ssid=$secretWifiGuest2GName
-add comment=wifiguest disabled=no mac-address=$secretWifiGuest5GMac master-interface=wlan2 name=wlan3 security-profile=profile ssid=$secretWifiGuest5GName
+add comment=wifiguest disabled=no mac-address=$wifiGuest2GMac master-interface=wlan1 name=wlan4 security-profile=profile ssid=$wifiGuest2GName
+add comment=wifiguest disabled=no mac-address=$wifiGuest5GMac master-interface=wlan2 name=wlan3 security-profile=profile ssid=$wifiGuest5GName
 
 /interface bridge filter
 remove [ find comment=wifiguest ]

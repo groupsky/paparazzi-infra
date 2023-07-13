@@ -91,6 +91,7 @@ services:
       - --entrypoints.https.address=:443
       - --entrypoints.https.http.tls.certresolver=default
       - --entrypoints.https.http.tls.domains[0].main=${TRAEFIK_DOMAIN}
+      - --entrypoints.https.http.tls.domains[0].sans=*.${TRAEFIK_DOMAIN}
       - --global.checkNewVersion=false
       - --global.sendAnonymousUsage=false
       - --log.level=WARN

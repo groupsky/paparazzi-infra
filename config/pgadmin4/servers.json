@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Home Assistant",
+      "Group": "Local databases",
+      "Port": 5432,
+      "Username": "homeassistant",
+      "Host": "postgres",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "homeassistant",
+      "PassFile": "/run/secrets/postgres_password"
+    }
+  }
+}

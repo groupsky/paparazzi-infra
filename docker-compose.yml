@@ -82,6 +82,7 @@ services:
     build: docker/traefik
     networks:
       - ingress
+      - egress
     command:
       - --api=true
       - --api.dashboard=true
@@ -93,7 +94,8 @@ services:
       - --entrypoints.https.address=:443
       - --entrypoints.https.http.tls.certresolver=default
       - --entrypoints.https.http.tls.domains[0].main=${TRAEFIK_DOMAIN}
-      - --entrypoints.https.http.tls.domains[0].sans=*.${TRAEFIK_DOMAIN}
+      - --entrypoints.https.http.tls.domains[1].main=pgadmin4.${TRAEFIK_DOMAIN}
+      - --entrypoints.https.http.tls.domains[2].main=home-assistant.${TRAEFIK_DOMAIN}
       - --global.checkNewVersion=false
       - --global.sendAnonymousUsage=false
       - --log.level=WARN

@@ -2,6 +2,13 @@ default_config:
 
 homeassistant:
 
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+
 recorder:
   db_url: !secret db_url
 

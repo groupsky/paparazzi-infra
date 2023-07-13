@@ -51,6 +51,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik-pgadmin4.entrypoints=https"
       - "traefik.http.routers.traefik-pgadmin4.rule=Host(`pgadmin4.${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.services.traefik-pgadmin4.loadbalancer.server.port=80"
 
   home-assistant:
     extends:
@@ -72,6 +73,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik-home-assistant.entrypoints=https"
       - "traefik.http.routers.traefik-home-assistant.rule=Host(`home-assistant.${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.services.traefik-home-assistant.loadbalancer.server.port=8123"
 
   traefik:
     extends:
@@ -125,6 +127,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik-whoami.entrypoints=https"
       - "traefik.http.routers.traefik-whoami.rule=Host(`${TRAEFIK_DOMAIN}`)"
+      - "traefik.http.services.traefik-whoami.loadbalancer.server.port=80"
 
   vpn:
     extends:
